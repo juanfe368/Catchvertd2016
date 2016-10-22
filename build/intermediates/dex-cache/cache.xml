@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="1960620329d24a738d6b81e768d27524a96697c5">
+        <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_82c93664fe29b948ccaf3b26f00e5c483cfdd548/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/libs/Vuforia.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="c2e5736390b929a2bcc06bd83804b520106c5df0">
+        <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/2/Vuforia_fb17cc89382ad75e4d0544cb6dabebe657b45bdc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="93d367d1c947280726814650ecd6cd206223311d">
+        <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_95dd1fb6be163ad2e8273a4aadd81341cca92f8b/classes.dex" />
+    </item>
+
+</items>

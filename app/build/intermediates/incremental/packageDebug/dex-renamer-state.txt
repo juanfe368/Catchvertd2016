@@ -1,7 +1,0 @@
-#Fri Oct 21 23:27:13 COT 2016
-base.0=/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_95dd1fb6be163ad2e8273a4aadd81341cca92f8b
-renamed.1=classes2.dex
-renamed.0=classes.dex
-file.1=/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_82c93664fe29b948ccaf3b26f00e5c483cfdd548/classes.dex
-base.1=/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_82c93664fe29b948ccaf3b26f00e5c483cfdd548
-file.0=/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_95dd1fb6be163ad2e8273a4aadd81341cca92f8b/classes.dex

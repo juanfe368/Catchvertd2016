@@ -28,12 +28,12 @@
         "source": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/src/main/res/drawable/new_target_button_background.xml"
     },
     {
-        "merged": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/drawable/reticle.png",
-        "source": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/src/main/res/drawable/reticle.png"
-    },
-    {
         "merged": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/drawable/card_info.png",
         "source": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/src/main/res/drawable/card_info.png"
+    },
+    {
+        "merged": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/drawable/reticle.png",
+        "source": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/src/main/res/drawable/reticle.png"
     },
     {
         "merged": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/drawable/icon_03.png",
@@ -44,12 +44,12 @@
         "source": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/src/main/res/drawable/scanline.png"
     },
     {
-        "merged": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/drawable/logo.png",
-        "source": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/src/main/res/drawable/logo.png"
-    },
-    {
         "merged": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/drawable/close_button_background.xml",
         "source": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/src/main/res/drawable/close_button_background.xml"
+    },
+    {
+        "merged": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/drawable/logo.png",
+        "source": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/src/main/res/drawable/logo.png"
     },
     {
         "merged": "/Users/foxcar/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/drawable/button_close_normal.png",

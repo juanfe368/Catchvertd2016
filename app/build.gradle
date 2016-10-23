@@ -7,22 +7,18 @@ def JAR_DIR = 'build/java/vuforia'
 android {
     compileSdkVersion 22
     buildToolsVersion "22.0.1"
-
     sourceSets.main {
         jni.srcDirs = []
         jniLibs.srcDir "$VUFORIA_SDK_DIR/$NATIVE_LIB_DIR/"
     }
-
     defaultConfig {
         applicationId "com.vuforia.samples.VuforiaSamples"
-        minSdkVersion 9
+        minSdkVersion 20
         targetSdkVersion 22
         versionCode 600
         versionName "6.0"
     }
-
     archivesBaseName = rootProject.projectDir.getName()
-	
     buildTypes {
         release {
             minifyEnabled false
@@ -38,9 +34,12 @@ android {
             }
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
     compile files('libs/Vuforia.jar')
     compile files('libs/lib.jar')
+    compile 'com.android.support:appcompat-v7:22.2.1'
 }

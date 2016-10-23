@@ -19,6 +19,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 
+import com.vuforia.samples.Catchvertd.LoginCatchvertd;
 import com.vuforia.samples.VuforiaSamples.R;
 
 
@@ -52,8 +53,11 @@ public class ActivitySplashScreen extends Activity
             public void run()
             {
                 
-                Intent intent = new Intent(ActivitySplashScreen.this,
+                /*Intent intent = new Intent(ActivitySplashScreen.this,
                     ActivityLauncher.class);
+                startActivity(intent);*/
+
+                Intent intent = new Intent(ActivitySplashScreen.this, LoginCatchvertd.class);
                 startActivity(intent);
                 
             }

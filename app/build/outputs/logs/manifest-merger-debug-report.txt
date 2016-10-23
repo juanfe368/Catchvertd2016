@@ -51,14 +51,14 @@ uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:46:5-80
 	android:name
 		ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:46:22-77
-android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:48:5-89
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:48:5-81
 	android:name
-		ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:48:30-86
-android:uses-permission#android.permission.READ_PHONE_STATE
-ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:49:5-83
+		ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:48:22-78
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:49:5-75
 	android:name
-		ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:49:30-80
+		ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:49:22-72
 application
 ADDED from /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/AndroidManifest.xml:60:5-157:19
 MERGED from [com.android.support:appcompat-v7:22.2.1] /Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/AndroidManifest.xml:22:5-20

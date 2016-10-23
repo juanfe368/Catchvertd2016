@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="22.0.1"
-        sha1="196123f4304e5773a02e032d0bac1b2a88b39c6b">
+        sha1="5acb8fd4ae837064c55708670a1f333d7debb4a9">
         <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_82c93664fe29b948ccaf3b26f00e5c483cfdd548/classes.dex" />
     </item>
     <item
@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="22.0.1"
-        sha1="06838d488ebc8f99e3250ea489db6e40de2f8a18">
+        sha1="a70bd12e9e1d202243cc2dc0f10fa93f8b300959">
         <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_95dd1fb6be163ad2e8273a4aadd81341cca92f8b/classes.dex" />
     </item>
 

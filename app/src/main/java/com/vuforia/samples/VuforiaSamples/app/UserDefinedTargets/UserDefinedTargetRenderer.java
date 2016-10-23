@@ -9,14 +9,19 @@ countries.
 
 package com.vuforia.samples.VuforiaSamples.app.UserDefinedTargets;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.IntBuffer;
 import java.util.Vector;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
 import android.opengl.Matrix;
+import android.os.Environment;
 import android.util.Log;
 
 import com.vuforia.Device;
@@ -26,6 +31,7 @@ import com.vuforia.State;
 import com.vuforia.Tool;
 import com.vuforia.TrackableResult;
 import com.vuforia.Vuforia;
+import com.vuforia.ar.pl.DebugLog;
 import com.vuforia.samples.SampleApplication.SampleAppRenderer;
 import com.vuforia.samples.SampleApplication.SampleAppRendererControl;
 import com.vuforia.samples.SampleApplication.SampleApplicationSession;

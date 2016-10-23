@@ -11,15 +11,24 @@ countries.
 package com.vuforia.samples.VuforiaSamples.app.UserDefinedTargets;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Vector;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Application;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -40,6 +49,7 @@ import com.vuforia.Trackable;
 import com.vuforia.Tracker;
 import com.vuforia.TrackerManager;
 import com.vuforia.Vuforia;
+import com.vuforia.samples.Catchvertd.MenuCatchvertd;
 import com.vuforia.samples.SampleApplication.SampleApplicationControl;
 import com.vuforia.samples.SampleApplication.SampleApplicationException;
 import com.vuforia.samples.SampleApplication.SampleApplicationSession;
@@ -51,6 +61,7 @@ import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenu;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
 
+import javax.microedition.khronos.opengles.GL10;
 
 // The main activity for the UserDefinedTargets sample.
 public class UserDefinedTargets extends Activity implements
@@ -98,7 +109,8 @@ public class UserDefinedTargets extends Activity implements
     
     boolean mIsDroidDevice = false;
     
-    
+    boolean clickButtonPhoto = false;
+
     // Called when the activity first starts or needs to be recreated after
     // resuming the application or a configuration change.
     @Override
@@ -383,6 +395,7 @@ public class UserDefinedTargets extends Activity implements
             
             // Builds the new target
             startBuild();
+            clickButtonPhoto = true;
         }
     }
     

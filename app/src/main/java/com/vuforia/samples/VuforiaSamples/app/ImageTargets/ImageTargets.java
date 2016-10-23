@@ -97,7 +97,8 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
     private AlertDialog mErrorDialog;
     
     boolean mIsDroidDevice = false;
-    
+
+    boolean clickScreenPhotoRenderer = false;
     
     // Called when the activity first starts or the user navigates back to an
     // activity.
@@ -579,7 +580,7 @@ public class ImageTargets extends Activity implements SampleApplicationControl,
         // Process the Gestures
         if (mSampleAppMenu != null && mSampleAppMenu.processEvent(event))
             return true;
-        
+        clickScreenPhotoRenderer = true;
         return mGestureDetector.onTouchEvent(event);
     }
     

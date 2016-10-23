@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="22.0.1"
-        sha1="5acb8fd4ae837064c55708670a1f333d7debb4a9">
+        sha1="1358d87236eac90232ea9eb44886723c023212f3">
         <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_82c93664fe29b948ccaf3b26f00e5c483cfdd548/classes.dex" />
     </item>
     <item
@@ -18,6 +18,15 @@
         revision="22.0.1"
         sha1="c2e5736390b929a2bcc06bd83804b520106c5df0">
         <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/2/Vuforia_fb17cc89382ad75e4d0544cb6dabebe657b45bdc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/juanfe/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-22.2.1_13b97442aade81c8394bd78468eec5ff96501310/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -39,30 +48,21 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="22.0.1"
+        sha1="4aa2834f8c469b1254de8ad53b816836ecaf431f">
+        <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_95dd1fb6be163ad2e8273a4aadd81341cca92f8b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
         jumboMode="true"
         optimize="true"
         revision="22.0.1"
         sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
         <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-22.2.1_f8aac1b574e2111b36d9382fffa43e7117daffc1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/juanfe/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-22.2.1_13b97442aade81c8394bd78468eec5ff96501310/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="22.0.1"
-        sha1="a70bd12e9e1d202243cc2dc0f10fa93f8b300959">
-        <dex dex="/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_95dd1fb6be163ad2e8273a4aadd81341cca92f8b/classes.dex" />
     </item>
 
 </items>

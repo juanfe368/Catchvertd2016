@@ -128,6 +128,10 @@
         "source": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/res/layout/card.xml"
     },
     {
+        "merged": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/layout/activity_menu_catchvertd.xml",
+        "source": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/res/layout/activity_menu_catchvertd.xml"
+    },
+    {
         "merged": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/res/merged/debug/layout/notification_template_big_media_narrow.xml",
         "source": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/layout/notification_template_big_media_narrow.xml"
     },

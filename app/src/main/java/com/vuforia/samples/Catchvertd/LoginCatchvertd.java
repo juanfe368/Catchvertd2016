@@ -1,24 +1,31 @@
 package com.vuforia.samples.Catchvertd;
 
-import android.app.AlertDialog;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vuforia.samples.VuforiaSamples.R;
 
-import java.util.ArrayList;
+import org.json.JSONArray;
 
-public class LoginCatchvertd extends Activity {
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+public class LoginCatchvertd extends Activity implements View.OnClickListener{
 
 
     private EditText txtUserName;
     private EditText txtUserClave;
-    private ClassUsuario usuario;
+
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,22 +33,102 @@ public class LoginCatchvertd extends Activity {
         setContentView(R.layout.activity_login_catchvertd);
         txtUserName = (EditText) findViewById(R.id.txtUsuarioLogin);
         txtUserClave = (EditText) findViewById(R.id.txtClaveLogin);
-        this.usuario = new ClassUsuario(txtUserName.getText().toString(),txtUserClave.getText().toString(),"","","");
+
+        btnLogin = (Button) findViewById(R.id.butLogin);
+        btnLogin.setOnClickListener(this);
+
     }
 
-    public void butAceptarLogin(View view){
-        ArrayList datosUsuario = usuario.autenticarUsuario(usuario);
-        if(datosUsuario.size()>0){
-            Intent activMenu = new Intent(this, MenuCatchvertd.class);
-            activMenu.putStringArrayListExtra("arrayDatosUsuario", datosUsuario);
-            startActivity(activMenu);
+    @Override
+    public void onClick(View v) {
+
+        if( v == btnLogin){
+            Thread tr = new  Thread(){
+                @Override
+                public void run() {
+
+                    System.out.println("********************************");
+                    System.out.println(" ");
+                    System.out.println("Llamando servicioWeb");
+                    System.out.println(" ");
+                    System.out.println("Usuario    = " + txtUserName.getText().toString());
+                    System.out.println("Contraseña = " + txtUserClave.getText().toString());
+                    System.out.println("********************************");
+                    //
+                    final String resultado = enviarDatosGET(txtUserName.getText().toString(),txtUserClave.getText().toString());
+
+                    System.out.println("resultado del servicioWeb = " + resultado);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            int r = obtenerDatosJSON(resultado);
+                            if (r > 0){
+                                Intent i = new Intent(getApplicationContext(),MenuCatchvertd.class);
+                                startActivity(i);
+                            }else{
+                                Toast.makeText(getApplicationContext(),"Usuario o Password incorrectos", Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                }
+            };
+            tr.start();
         }
-        else if(datosUsuario.size()==0) {
-            AlertDialog alerta = new AlertDialog.Builder(this).create();
-            alerta.setTitle("Autenticación");
-            alerta.setMessage("Usuario o Clave incorrecto por favor vuelva a intentarlo");
-            alerta.show();
-        }
+
     }
+
+
+    public String enviarDatosGET(String usu, String pass) {
+
+        URL url = null;
+        String linea = "";
+        int respuesta = 0;
+        StringBuilder resul = null;
+
+        try {
+            url = new URL("http://192.168.0.14:8888/Catchvertd/valida.php?usu=" + usu + "&pas=" + pass);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            respuesta = connection.getResponseCode();
+
+            resul = new StringBuilder();
+
+            if (respuesta == HttpURLConnection.HTTP_OK) {
+                InputStream in = new BufferedInputStream(connection.getInputStream());
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
+
+                while ((linea = reader.readLine()) != null) {
+                    resul.append(linea);
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return resul.toString();
+    }
+
+
+    public int obtenerDatosJSON(String response){
+
+        int res = 0;
+
+        try{
+            JSONArray json = new JSONArray(response);
+
+            if (json.length() > 0 ){
+                res = 1;
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+
+
 
 }

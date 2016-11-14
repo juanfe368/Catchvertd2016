@@ -68,4 +68,15 @@
 
     <string name="splash_screen_description">Vuforia Splash</string>
 
+    <!-- Inicio de String de Catchvertd -->
+
+    <string name="stringUsuarioLogin">prueba1@gmail.com</string>
+    <string name="stringClaveLogin">1234</string>
+    <string name="stringbutLogin">Aceptar</string>
+    <string name="stringRegistroLogin">Registrarse</string>
+    <string name="stringRecordarContrasena">Recordar contraseña</string>
+
+
+    <!-- Fin de String de Catchvertd -->
+
 </resources>

@@ -44,7 +44,7 @@ public class ActivitySplashScreen extends Activity
         
         addContentView(layout, new LayoutParams(LayoutParams.MATCH_PARENT,
             LayoutParams.MATCH_PARENT));
-        
+      /*
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable()
         {
@@ -52,17 +52,14 @@ public class ActivitySplashScreen extends Activity
             @Override
             public void run()
             {
-                
-                /*Intent intent = new Intent(ActivitySplashScreen.this,
-                    ActivityLauncher.class);
-                startActivity(intent);*/
-
+*/
                 Intent intent = new Intent(ActivitySplashScreen.this, LoginCatchvertd.class);
                 startActivity(intent);
-                
+                /*
             }
             
         }, SPLASH_MILLIS);
+        */
     }
     
 }

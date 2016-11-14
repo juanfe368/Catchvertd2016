@@ -21,7 +21,6 @@ public class MenuCatchvertd extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_catchvertd);
         lblTextoUsuario = (TextView) findViewById(R.id.txtUsuarioMenu);
-        lblTextoUsuario.setText("Usuario: "+getIntent().getStringArrayListExtra("arrayDatosUsuario").get(0));
     }
 
     public void butFood1(View v){

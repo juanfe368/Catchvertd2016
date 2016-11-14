@@ -1848,8 +1848,13 @@ containing a value of this type.
         public static final int overlay_build_target_help=0x7f050048;
         public static final int splash_screen_description=0x7f050049;
         public static final int status_bar_notification_info_overflow=0x7f05004a;
-        public static final int target_quality_error_desc=0x7f05004b;
-        public static final int target_quality_error_title=0x7f05004c;
+        public static final int stringClaveLogin=0x7f05004b;
+        public static final int stringRecordarContrasena=0x7f05004c;
+        public static final int stringRegistroLogin=0x7f05004d;
+        public static final int stringUsuarioLogin=0x7f05004e;
+        public static final int stringbutLogin=0x7f05004f;
+        public static final int target_quality_error_desc=0x7f050050;
+        public static final int target_quality_error_title=0x7f050051;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f070074;

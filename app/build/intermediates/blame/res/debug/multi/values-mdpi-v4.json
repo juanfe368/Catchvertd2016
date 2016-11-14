@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mdpi-v4/values-mdpi-v4.xml",
+        "outputFile": "/Users/foxcar/AndroidStudioProjects/Catchvertd/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mdpi-v4/values-mdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 99
                 },
                 "from": {
-                    "file": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/res/values-mdpi/dimens.xml",
+                    "file": "/Users/foxcar/AndroidStudioProjects/Catchvertd/app/src/main/res/values-mdpi/dimens.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 149
                 },
                 "from": {
-                    "file": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/res/values-mdpi/dimens.xml",
+                    "file": "/Users/foxcar/AndroidStudioProjects/Catchvertd/app/src/main/res/values-mdpi/dimens.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

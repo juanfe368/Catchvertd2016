@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+        "outputFile": "/Users/foxcar/AndroidStudioProjects/Catchvertd/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 99
                 },
                 "from": {
-                    "file": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/res/values-hdpi/dimens.xml",
+                    "file": "/Users/foxcar/AndroidStudioProjects/Catchvertd/app/src/main/res/values-hdpi/dimens.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 149
                 },
                 "from": {
-                    "file": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/src/main/res/values-hdpi/dimens.xml",
+                    "file": "/Users/foxcar/AndroidStudioProjects/Catchvertd/app/src/main/res/values-hdpi/dimens.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -50,7 +50,7 @@
                     "endOffset": 424
                 },
                 "from": {
-                    "file": "/Users/juanfe/AndroidStudioProjects/Catchvertd2016/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-hdpi/values-hdpi.xml",
+                    "file": "/Users/foxcar/AndroidStudioProjects/Catchvertd/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/res/values-hdpi/values-hdpi.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,

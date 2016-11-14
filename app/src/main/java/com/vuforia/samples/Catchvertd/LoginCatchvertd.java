@@ -86,8 +86,12 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
         int respuesta = 0;
         StringBuilder resul = null;
 
+        String url_local = "http://192.168.0.14:8888/Catchvertd/";
+        String url_remota = "http://catchvertd.3eeweb.com/";
+
         try {
-            url = new URL("http://192.168.0.14:8888/Catchvertd/valida.php?usu=" + usu + "&pas=" + pass);
+
+            url = new URL(url_remota + "valida.php?usu=" + usu + "&pas=" + pass);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             respuesta = connection.getResponseCode();
 

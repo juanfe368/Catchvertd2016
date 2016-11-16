@@ -46,7 +46,7 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
             Thread tr = new  Thread(){
                 @Override
                 public void run() {
-
+                    /*
                     System.out.println("********************************");
                     System.out.println(" ");
                     System.out.println("Llamando servicioWeb");
@@ -54,10 +54,10 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
                     System.out.println("Usuario    = " + txtUserName.getText().toString());
                     System.out.println("Contraseña = " + txtUserClave.getText().toString());
                     System.out.println("********************************");
-                    //
+                    */
                     final String resultado = enviarDatosGET(txtUserName.getText().toString(),txtUserClave.getText().toString());
 
-                    System.out.println("resultado del servicioWeb = " + resultado);
+                    //System.out.println("resultado del servicioWeb = " + resultado);
 
                     runOnUiThread(new Runnable() {
                         @Override

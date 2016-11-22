@@ -1,7 +1,0 @@
-#Mon Nov 14 13:58:06 COT 2016
-base.0=/Users/foxcar/AndroidStudioProjects/Catchvertd/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_564a1e432ea542cfe5dbbe34f065828eb071661b
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=/Users/foxcar/AndroidStudioProjects/Catchvertd/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_d9345f87bf954e7be7c40ec9fea25d087bf2926a/classes.dex
-base.1=/Users/foxcar/AndroidStudioProjects/Catchvertd/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_d9345f87bf954e7be7c40ec9fea25d087bf2926a
-file.0=/Users/foxcar/AndroidStudioProjects/Catchvertd/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_564a1e432ea542cfe5dbbe34f065828eb071661b/classes.dex

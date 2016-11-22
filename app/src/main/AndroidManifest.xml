@@ -46,7 +46,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <!--
       NOTE: The setting 'android:launchMode="singleTask"' makes sure
       that the activity can begin only one task and the device can hold only
@@ -158,21 +159,16 @@
             android:theme="@style/SampleAppsTheme" />
         -->
 
-
-        <activity android:name="com.vuforia.samples.Catchvertd.MenuCatchvertd"
+        <activity
+            android:name="com.vuforia.samples.Catchvertd.MenuCatchvertd"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:launchMode="singleTask"
-            android:theme="@style/SampleAppsTheme"/>
-
-
-
-        <activity android:name=".ui.ActivityList.ActivitySplashScreen"
+            android:theme="@style/SampleAppsTheme" />
+        <activity
+            android:name=".ui.ActivityList.ActivitySplashScreen"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:launchMode="singleTask"
-            android:theme="@style/SampleAppsTheme"/>
-
-
-
+            android:theme="@style/SampleAppsTheme" />
     </application>
 
 </manifest>

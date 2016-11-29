@@ -70,13 +70,32 @@
 
     <!-- Inicio de String de Catchvertd -->
 
-    <string name="stringUsuarioLogin">prueba1@gmail.com</string>
-    <string name="stringClaveLogin">1234</string>
-    <string name="stringbutLogin">Aceptar</string>
-    <string name="stringRegistroLogin">Registrarse</string>
-    <string name="stringRecordarContrasena">Recordar contraseña</string>
+        <!-- Textos de la pantalla de login -->
+
+        <string name="stringbutLogin">Aceptar</string>
+        <string name="stringRegistroLogin">Registrarse</string>
+        <string name="stringRecordarContrasena">Recordar contraseña</string>
+
+        <!-- Textos de la pantalla de registro -->
+        <string name="stringRegistro">Registro</string>
+        <string name="stringRegistroNombre">Nombre</string>
+        <string name="stringRegistroApellido">Apellido</string>
+        <string name="stringRegistroEmail">E-mail</string>
+        <string name="stringRegistroContrasena">Contraseña</string>
+        <string name="stringRegistroConfirmarContrasena">Confirmar Contraseña</string>
+        <string name="stringRegistroEnviar">Enviar</string>
 
 
-    <!-- Fin de String de Catchvertd -->
+        <!-- Datos de prueba pantalla Login-->
+        <string name="stringUsuarioLogin">prueba01@usc.edu.co</string>
+        <string name="stringClaveLogin">123456</string>
+    <!-- Datos de prueba pantalla Registro-->
+        <string name="stringRegNombre">prueba00</string>
+        <string name="stringRegApellido">prueba</string>
+        <string name="stringRegEmail">prueba00@usc.edu.co</string>
+        <string name="stringRegPassword">123456</string>
+        <string name="stringRegRePassword">123456</string>
+        <!-- Fin de String de Catchvertd -->
+
 
 </resources>

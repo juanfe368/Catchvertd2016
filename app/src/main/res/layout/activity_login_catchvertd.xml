@@ -67,7 +67,7 @@
             android:id="@+id/lblRegistroLogin"
             android:layout_weight="0.06"
             android:textSize="18sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"/>
 
         <TextView
             android:text="@string/stringRecordarContrasena"

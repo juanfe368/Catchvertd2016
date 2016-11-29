@@ -169,6 +169,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:launchMode="singleTask"
             android:theme="@style/SampleAppsTheme" />
+        <activity android:name="com.vuforia.samples.Catchvertd.RegistroActivity"></activity>
     </application>
 
 </manifest>

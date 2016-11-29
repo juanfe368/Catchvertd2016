@@ -28,8 +28,9 @@ public class ClassUsuario {
     }
 
     public ArrayList autenticarUsuario(ClassUsuario usu){
-        ArrayList arrayDatosUsuario =  connectWs.autenticarUsuario(usu.getUserName(),usu.getUserClave());
-        return arrayDatosUsuario;
+        //ArrayList arrayDatosUsuario =  connectWs.autenticarUsuario(usu.getUserName(),usu.getUserClave());
+        //return arrayDatosUsuario;
+        return null;
     }
 
     public String getUserName() {

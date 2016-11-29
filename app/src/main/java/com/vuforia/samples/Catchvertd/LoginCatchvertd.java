@@ -6,58 +6,39 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.vuforia.samples.VuforiaSamples.R;
 
 import org.json.JSONArray;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 public class LoginCatchvertd extends Activity implements View.OnClickListener{
-
-    private FirebaseAnalytics mFirebaseAnalytics;
 
     private EditText txtUserName;
     private EditText txtUserClave;
 
     Button btnLogin;
+    TextView lblRegistro, lblRecuperarPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Obtain the FirebaseAnalytics instance.
-        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-
         setContentView(R.layout.activity_login_catchvertd);
-
-
-
-/*
-        if(!RevisarInternet.ConexionDisponible(this))
-        {
-            // Muestras tu toast que no hay conexión
-            btnLogin.setEnabled(false);
-        }
-        else
-        {
-            // Muestras tu toast que si hay conexión
-            btnLogin.setEnabled(true);
-        }
-*/
 
         txtUserName = (EditText) findViewById(R.id.txtUsuarioLogin);
         txtUserClave = (EditText) findViewById(R.id.txtClaveLogin);
 
         btnLogin = (Button) findViewById(R.id.butLogin);
         btnLogin.setOnClickListener(this);
+
+        lblRegistro = (TextView) findViewById(R.id.lblRegistroLogin);
+        lblRegistro.setOnClickListener(this);
+
+        lblRecuperarPassword = (TextView) findViewById(R.id.lblRecoveryLogin);
+        lblRecuperarPassword.setOnClickListener(this);
+
 
     }
 
@@ -71,8 +52,10 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
                 @Override
                 public void run() {
 
-                    //Llamando servicioWeb con enviarDatosGET
-                    final String resultado = enviarDatosGET(txtUserName.getText().toString(),txtUserClave.getText().toString());
+                    ConnectWs cw = new ConnectWs();
+
+                    //Llamando servicioWeb con enviarDatosLoginGET
+                    final String resultado = cw.enviarDatosLoginGET(txtUserName.getText().toString(),txtUserClave.getText().toString());
 
                     //System.out.println("resultado del servicioWeb = " + resultado);
 
@@ -96,6 +79,15 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
 
             //inicia el hilo
             tr.start();
+        }else if(v == lblRegistro){
+
+            //System.out.println("Ingreso a crear registro");
+            Intent intent = new Intent(this, RegistroActivity.class);
+            startActivity(intent);
+
+        }else if(v == lblRecuperarPassword){
+            //muestra un mensaje de en la pantalla
+            Toast.makeText(getApplicationContext(),"En construcción", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -107,7 +99,8 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
      * @param pass
      * @return
      */
-    public String enviarDatosGET(String usu, String pass) {
+  /*
+    public String enviarDatosLoginGET(String usu, String pass) {
 
         URL url = null;
         String linea = "";
@@ -144,7 +137,7 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
         //Retorna el resultado del servicio web que es un JSON
         return resul.toString();
     }
-
+*/
 
     /**
      * Verifica la cantidad de datos que regreso el servicio web
@@ -167,8 +160,5 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
         }
         return res;
     }
-
-
-
 
 }

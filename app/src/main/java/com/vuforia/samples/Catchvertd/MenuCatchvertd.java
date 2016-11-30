@@ -2,29 +2,57 @@ package com.vuforia.samples.Catchvertd;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vuforia.samples.VuforiaSamples.R;
 import com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets;
-import com.vuforia.samples.VuforiaSamples.app.UserDefinedTargets.UserDefinedTargets;
 
-public class MenuCatchvertd extends Activity {
+public class MenuCatchvertd extends Activity implements View.OnClickListener{
 
-    TextView lblTextoUsuario;
+    TextView lblTextoUsuario, lblEventos, lblPremios;
     LoginCatchvertd loginCatchvertd;
+    LinearLayout layoutEventos, layoutPremios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_catchvertd);
-        lblTextoUsuario = (TextView) findViewById(R.id.txtUsuarioMenu);
+        //lblTextoUsuario = (TextView) findViewById(R.id.txtUsuarioMenu);
+
+        lblEventos = (TextView) findViewById(R.id.lblEventosMenu);
+        lblEventos.setOnClickListener(this);
+
+        lblPremios = (TextView) findViewById(R.id.lblPremiosMenu);
+        lblPremios.setOnClickListener(this);
+
+        layoutEventos = (LinearLayout) findViewById(R.id.layoutEventos);
+        layoutEventos.setVisibility(LinearLayout.VISIBLE);
+
+        layoutPremios = (LinearLayout) findViewById(R.id.layoutPremios);
+        layoutPremios.setVisibility(LinearLayout.GONE);
+
     }
 
     public void butFood1(View v){
         Intent intent = new Intent(this, ImageTargets.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v == lblEventos) {
+
+           layoutEventos.setVisibility(LinearLayout.VISIBLE);
+           layoutPremios.setVisibility(LinearLayout.GONE);
+
+        }else if (v == lblPremios){
+            layoutEventos.setVisibility(LinearLayout.GONE);
+            layoutPremios.setVisibility(LinearLayout.VISIBLE);
+        }
+
     }
 }

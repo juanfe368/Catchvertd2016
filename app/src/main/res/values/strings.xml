@@ -85,11 +85,17 @@
         <string name="stringRegistroConfirmarContrasena">Confirmar Contraseña</string>
         <string name="stringRegistroEnviar">Enviar</string>
 
+        <!-- Textos de la pantalla del menú -->
+        <string name="stringLblEventos">Eventos</string>
+        <string name="stringLblPremios">Premios</string>
+
+
+
 
         <!-- Datos de prueba pantalla Login-->
         <string name="stringUsuarioLogin">prueba01@usc.edu.co</string>
         <string name="stringClaveLogin">123456</string>
-    <!-- Datos de prueba pantalla Registro-->
+        <!-- Datos de prueba pantalla Registro-->
         <string name="stringRegNombre">prueba00</string>
         <string name="stringRegApellido">prueba</string>
         <string name="stringRegEmail">prueba00@usc.edu.co</string>

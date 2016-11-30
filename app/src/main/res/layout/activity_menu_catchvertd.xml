@@ -1,44 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_menu_catchvertd"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.vuforia.samples.Catchvertd.MenuCatchvertd">
+
+    <LinearLayout
+        android:id="@+id/layoutAutenticacion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/lblRespuestMenu"
+            android:text="AUTENTICACIÓN EXITOSA"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:background="@color/light_gray"
+            android:textStyle="normal|bold"
+            android:textAlignment="center" />
+        <!--
+                <TextView
+                    android:text="Usuario:"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txtUsuarioMenu"
+                    android:layout_weight="0.10"
+                    android:textSize="24sp"
+                    android:textStyle="normal|bold"
+                    android:textAlignment="textStart" />
+        -->
+        </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/layoutMenu"
-        android:weightSum="1"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutMenu">
 
-        <TextView
-            android:text="AUTENTICACIÓN EXITOSA"
+        <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/lblRespuestMenu"
-            android:layout_weight="0.10"
-            android:textSize="24sp"
-            android:textStyle="normal|bold"
-            android:textAlignment="center" />
+            android:layout_height="0dp"
+            android:layout_weight="0.07"
+            android:gravity="center"
+            android:background="@color/light_gray"
+            android:id="@+id/layoutMenuOpciones"
+            android:weightSum="1"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp">
 
-        <TextView
-            android:text="Usuario:"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtUsuarioMenu"
-            android:layout_weight="0.10"
-            android:textSize="24sp"
-            android:textStyle="normal|bold"
-            android:textAlignment="textStart" />
+            <TextView
+                android:id="@+id/lblEventosMenu"
+                android:text="@string/stringLblEventos"
+                android:layout_width="145dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textStyle="normal|bold"
+                android:textAlignment="center" />
+
+            <TextView
+                android:id="@+id/lblPremiosMenu"
+                android:text="@string/stringLblPremios"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textStyle="normal|bold"
+                android:textAlignment="center"
+                android:layout_weight="0.12"
+                android:layout_width="145dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/layoutEventos">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.30"
+        android:gravity="center">
 
         <ImageButton
             android:layout_width="178dp"
@@ -46,6 +100,117 @@
             android:src="@drawable/eve_01_pizza"
             android:id="@+id/imgButFoodMenu"
             android:layout_weight="0.15"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_gravity="left"
+            android:background="@null"
+            android:onClick="butFood1" />
+
+        <ImageButton
+            android:layout_width="178dp"
+            android:layout_height="136dp"
+            android:src="@drawable/eve_02_bebidas"
+            android:id="@+id/imgButBebidasMenu"
+            android:layout_weight="0.15"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:layout_gravity="right"
+            android:background="@null"
             android:onClick="butFood1" />
     </LinearLayout>
-</RelativeLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.30"
+            android:gravity="center">
+            <ImageButton
+                android:layout_width="178dp"
+                android:layout_height="136dp"
+                android:src="@drawable/eve_03_cine"
+                android:id="@+id/imgButCineMenu"
+                android:layout_weight="0.15"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:onClick="butFood1" />
+
+            <ImageButton
+                android:layout_width="178dp"
+                android:layout_height="136dp"
+                android:src="@drawable/eve_04_teatro"
+                android:id="@+id/imgButTeatroMenu"
+                android:layout_weight="0.15"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:onClick="butFood1" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.30"
+            android:gravity="center">
+
+            <ImageButton
+                android:layout_width="178dp"
+                android:layout_height="136dp"
+                android:src="@drawable/eve_05_ropa"
+                android:id="@+id/imgButropaMenu"
+                android:layout_weight="0.15"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:onClick="butFood1" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/layoutPremios">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.30"
+            android:gravity="center">
+
+            <ImageButton
+                android:layout_width="178dp"
+                android:layout_height="136dp"
+                android:src="@drawable/pre_01_comida"
+                android:id="@+id/imgButFoodPremio"
+                android:layout_weight="0.15"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_gravity="left"
+                android:background="@null"
+                android:onClick="butFood1" />
+
+            <ImageButton
+                android:layout_width="178dp"
+                android:layout_height="136dp"
+                android:src="@drawable/pre_02_ropa"
+                android:id="@+id/imgButRopaPremio"
+                android:layout_weight="0.15"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:layout_gravity="right"
+                android:background="@null"
+                android:onClick="butFood1" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

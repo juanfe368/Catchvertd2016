@@ -5,13 +5,9 @@
     <string name="app_description">Catchvertd Aplication</string>
 
     <string name="button_start">Start</string>
-    <string name="activities_list_title_string">Vuforia Samples</string>
-    <string name="activities_list_empty">No activities</string>
 
     <string name="button_OK">OK</string>
 
-    <string name="UPDATE_ERROR_AUTHORIZATION_FAILED_TITLE">Authorization Error</string>
-    <string name="UPDATE_ERROR_PROJECT_SUSPENDED_TITLE">Authorization Error</string>
     <string name="UPDATE_ERROR_NO_NETWORK_CONNECTION_TITLE">Network Unavailable</string>
     <string name="UPDATE_ERROR_SERVICE_NOT_AVAILABLE_TITLE">Service Unavailable</string>
     <string name="UPDATE_ERROR_UPDATE_SDK_TITLE">Unsupported Version</string>
@@ -70,38 +66,44 @@
 
     <!-- Inicio de String de Catchvertd -->
 
-        <!-- Textos de la pantalla de login -->
+    <!-- Textos de la pantalla de login -->
 
-        <string name="stringbutLogin">Aceptar</string>
-        <string name="stringRegistroLogin">Registrarse</string>
-        <string name="stringRecordarContrasena">Recordar contraseña</string>
+    <string name="stringbutLogin">Aceptar</string>
+    <string name="stringRegistroLogin">Registrarse</string>
+    <string name="stringRecordarContrasena">Recordar contraseña</string>
 
-        <!-- Textos de la pantalla de registro -->
-        <string name="stringRegistro">Registro</string>
-        <string name="stringRegistroNombre">Nombre</string>
-        <string name="stringRegistroApellido">Apellido</string>
-        <string name="stringRegistroEmail">E-mail</string>
-        <string name="stringRegistroContrasena">Contraseña</string>
-        <string name="stringRegistroConfirmarContrasena">Confirmar Contraseña</string>
-        <string name="stringRegistroEnviar">Enviar</string>
+    <!-- Textos de la pantalla de registro -->
+    <string name="stringRegistro">Registro</string>
+    <string name="stringRegistroNombre">Nombre</string>
+    <string name="stringRegistroApellido">Apellido</string>
+    <string name="stringRegistroEmail">E-mail</string>
+    <string name="stringRegistroContrasena">Contraseña</string>
+    <string name="stringRegistroConfirmarContrasena">Confirmar Contraseña</string>
+    <string name="stringRegistroEnviar">Enviar</string>
 
-        <!-- Textos de la pantalla del menú -->
-        <string name="stringLblEventos">Eventos</string>
-        <string name="stringLblPremios">Premios</string>
-
-
+    <!-- Textos de la pantalla del menú -->
+    <string name="stringLblEventos">Eventos</string>
+    <string name="stringLblPremios">Premios</string>
 
 
-        <!-- Datos de prueba pantalla Login-->
-        <string name="stringUsuarioLogin">prueba01@usc.edu.co</string>
-        <string name="stringClaveLogin">123456</string>
-        <!-- Datos de prueba pantalla Registro-->
-        <string name="stringRegNombre">prueba00</string>
-        <string name="stringRegApellido">prueba</string>
-        <string name="stringRegEmail">prueba00@usc.edu.co</string>
-        <string name="stringRegPassword">123456</string>
-        <string name="stringRegRePassword">123456</string>
-        <!-- Fin de String de Catchvertd -->
+    <!-- Datos de prueba pantalla Login-->
+    <string name="stringUsuarioLogin">prueba01@usc.edu.co</string>
+    <string name="stringClaveLogin">123456</string>
+
+    <!-- Datos de prueba pantalla Registro-->
+    <string name="stringRegNombre">prueba00</string>
+    <string name="stringRegApellido">prueba</string>
+    <string name="stringRegEmail">prueba00@usc.edu.co</string>
+    <string name="stringRegPassword">123456</string>
+    <string name="stringRegRePassword">123456</string>
+
+    <!-- Datos de prueba pantalla Premios-->
+    <string name="stringBtnRegresar">Regresar</string>
+    <string name="stringPremiosTitulo">Premios</string>
+    <string name="stringPremiosTituloDescripcion">Menú para dos o cuatro con 50% off</string>
+    <string name="stringPremiosDescripcion">Restaurante xxxxxx yyyyyy</string>
+
+    <!-- Fin de String de Catchvertd -->
 
 
 </resources>

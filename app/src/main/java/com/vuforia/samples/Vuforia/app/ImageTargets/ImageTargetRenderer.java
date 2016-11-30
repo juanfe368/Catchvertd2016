@@ -7,7 +7,7 @@ Vuforia is a trademark of PTC Inc., registered in the United States and other
 countries.
 ===============================================================================*/
 
-package com.vuforia.samples.VuforiaSamples.app.ImageTargets;
+package com.vuforia.samples.Vuforia.app.ImageTargets;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,7 +18,6 @@ import java.util.Vector;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import android.app.AlertDialog;
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;

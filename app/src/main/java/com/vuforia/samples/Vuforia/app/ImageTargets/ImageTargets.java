@@ -8,10 +8,7 @@ Vuforia is a trademark of PTC Inc., registered in the United States and other
 countries.
 ===============================================================================*/
 
-package com.vuforia.samples.VuforiaSamples.app.ImageTargets;
-
-import java.util.ArrayList;
-import java.util.Vector;
+package com.vuforia.samples.Vuforia.app.ImageTargets;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -36,10 +33,9 @@ import android.widget.Toast;
 
 import com.vuforia.CameraDevice;
 import com.vuforia.DataSet;
-import com.vuforia.Device;
 import com.vuforia.ObjectTracker;
-import com.vuforia.State;
 import com.vuforia.STORAGE_TYPE;
+import com.vuforia.State;
 import com.vuforia.Trackable;
 import com.vuforia.Tracker;
 import com.vuforia.TrackerManager;
@@ -54,6 +50,9 @@ import com.vuforia.samples.VuforiaSamples.R;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenu;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
+
+import java.util.ArrayList;
+import java.util.Vector;
 
 
 public class ImageTargets extends Activity implements SampleApplicationControl,

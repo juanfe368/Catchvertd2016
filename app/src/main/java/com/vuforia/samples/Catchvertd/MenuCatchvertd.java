@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.vuforia.samples.VuforiaSamples.R;
-import com.vuforia.samples.VuforiaSamples.app.ImageTargets.ImageTargets;
+import com.vuforia.samples.Vuforia.app.ImageTargets.ImageTargets;
 
 public class MenuCatchvertd extends Activity implements View.OnClickListener{
 
@@ -40,6 +40,12 @@ public class MenuCatchvertd extends Activity implements View.OnClickListener{
         Intent intent = new Intent(this, ImageTargets.class);
         startActivity(intent);
     }
+
+    public void butPremios(View v) {
+        Intent intent = new Intent(this, PremiosActivity.class);
+        startActivity(intent);
+    }
+
 
     @Override
     public void onClick(View v) {

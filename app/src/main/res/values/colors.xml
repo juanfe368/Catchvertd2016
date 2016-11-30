@@ -10,5 +10,12 @@
     
     <color name="overlay_bottom_bar_separators">#333333</color>
     <color name="overlay_bottom_bar_background">#1E1E1E</color>
-    
+
+    <color name="colorMenu">#01BCD4</color>
+    <color name="colorTextoMenu">#FFFFFF</color>
+
+    <color name="colorFondoPremios">#243337</color>
+    <color name="colorFondoPremios2">#F2F2F2</color>
+    <color name="colorTextoPremios">#666666</color>
+
 </resources>

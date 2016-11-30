@@ -8,15 +8,15 @@ Vuforia is a trademark of PTC Inc., registered in the United States and other
 countries.
 ===============================================================================*/
 
-package com.vuforia.samples.VuforiaSamples.app.ObjectRecognition;
-
-import java.util.Vector;
+package com.vuforia.samples.Vuforia.app.VuMark;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,16 +27,19 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.CheckBox;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Switch;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.vuforia.CameraDevice;
 import com.vuforia.DataSet;
+import com.vuforia.HINT;
 import com.vuforia.ObjectTracker;
-import com.vuforia.State;
 import com.vuforia.STORAGE_TYPE;
+import com.vuforia.State;
 import com.vuforia.Trackable;
 import com.vuforia.Tracker;
 import com.vuforia.TrackerManager;
@@ -52,38 +55,43 @@ import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenu;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuGroup;
 import com.vuforia.samples.VuforiaSamples.ui.SampleAppMenu.SampleAppMenuInterface;
 
+import java.util.Vector;
 
-public class ObjectTargets extends Activity implements SampleApplicationControl,
-    SampleAppMenuInterface
+
+public class VuMark extends Activity implements SampleApplicationControl,
+        SampleAppMenuInterface
 {
-    private static final String LOGTAG = "ObjectRecognition";
+    private static final String LOGTAG = "VuMark";
     
     SampleApplicationSession vuforiaAppSession;
     
     private DataSet mCurrentDataset;
-    
+
     // Our OpenGL view:
     private SampleApplicationGLView mGlView;
     
     // Our renderer:
-    private ObjectTargetRenderer mRenderer;
+    private VuMarkRenderer mRenderer;
+    
+    private GestureDetector mGestureDetector;
     
     // The textures we will use for rendering:
     private Vector<Texture> mTextures;
     
-    private GestureDetector mGestureDetector;
-    
-    private boolean mFlash = false;
+    private boolean mContAutofocus = false;
     private boolean mExtendedTracking = false;
-    
-    private View mFlashOptionView;
-    
+
     private RelativeLayout mUILayout;
     
     private SampleAppMenu mSampleAppMenu;
     
     LoadingDialogHandler loadingDialogHandler = new LoadingDialogHandler(this);
-    
+
+    private View _viewCard;
+    private TextView _textType;
+    private TextView _textValue;
+    private ImageView _instanceImageView;
+
     // Alert Dialog used to display SDK errors
     private AlertDialog mErrorDialog;
     
@@ -101,30 +109,40 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
         vuforiaAppSession = new SampleApplicationSession(this);
         
         startLoadingAnimation();
-        
+
         vuforiaAppSession
             .initAR(this, ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        
+        mGestureDetector = new GestureDetector(this, new GestureListener());
         
         // Load any sample specific textures:
         mTextures = new Vector<Texture>();
         loadTextures();
         
-        mGestureDetector = new GestureDetector(this, new GestureListener());
-        
-        mIsDroidDevice = android.os.Build.MODEL.toLowerCase().startsWith(
+        mIsDroidDevice = Build.MODEL.toLowerCase().startsWith(
             "droid");
-        
+
+        LayoutParams layoutParamsControl = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+        LayoutInflater inflater = getLayoutInflater();
+        _viewCard = inflater.inflate(R.layout.card, null);
+        _viewCard.setVisibility(View.INVISIBLE);
+        LinearLayout cardLayout = (LinearLayout) _viewCard.findViewById(R.id.card_layout);
+
+        cardLayout.setOnTouchListener(new View.OnTouchListener() {
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    hideCard();
+                    return true;
+                }
+                return false;
+            }
+        });
+        addContentView(_viewCard, layoutParamsControl);
+
+        _textType = (TextView) _viewCard.findViewById(R.id.text_type);
+        _textValue = (TextView) _viewCard.findViewById(R.id.text_value);
+        _instanceImageView = (ImageView) _viewCard.findViewById(R.id.instance_image);
     }
-    
-    
-    // We want to load specific textures from the APK, which we will later use
-    // for rendering.
-    private void loadTextures()
-    {
-        mTextures.add(Texture.loadTextureFromApk(
-            "ObjectRecognition/CubeWireframe.png", getAssets()));
-    }
-    
     
     // Process Single Tap event to trigger autofocus
     private class GestureListener extends
@@ -163,6 +181,16 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
     }
     
     
+    // We want to load specific textures from the APK, which we will later use
+    // for rendering.
+    
+    private void loadTextures()
+    {
+        mTextures.add(Texture.loadTextureFromApk("vumark_texture.png",
+                getAssets()));
+    }
+    
+    
     // Called when the activity will start interacting with the user.
     @Override
     protected void onResume()
@@ -191,7 +219,6 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
             mGlView.setVisibility(View.VISIBLE);
             mGlView.onResume();
         }
-        
     }
     
     
@@ -218,20 +245,7 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
             mGlView.setVisibility(View.INVISIBLE);
             mGlView.onPause();
         }
-        
-        // Turn off the flash
-        if (mFlashOptionView != null && mFlash)
-        {
-            // OnCheckedChangeListener is called upon changing the checked state
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1)
-            {
-                ((Switch) mFlashOptionView).setChecked(false);
-            } else
-            {
-                ((CheckBox) mFlashOptionView).setChecked(false);
-            }
-        }
-        
+
         try
         {
             vuforiaAppSession.pauseAR();
@@ -276,7 +290,7 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
         mGlView = new SampleApplicationGLView(this);
         mGlView.init(translucent, depthSize, stencilSize);
         
-        mRenderer = new ObjectTargetRenderer(this, vuforiaAppSession);
+        mRenderer = new VuMarkRenderer(this, vuforiaAppSession);
         mRenderer.setTextures(mTextures);
         mGlView.setRenderer(mRenderer);
         
@@ -285,9 +299,8 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
     
     private void startLoadingAnimation()
     {
-        LayoutInflater inflater = LayoutInflater.from(this);
-        mUILayout = (RelativeLayout) inflater.inflate(R.layout.camera_overlay,
-            null, false);
+        mUILayout = (RelativeLayout) View.inflate(this, R.layout.camera_overlay_reticle,
+            null);
         
         mUILayout.setVisibility(View.VISIBLE);
         mUILayout.setBackgroundColor(Color.BLACK);
@@ -302,11 +315,56 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
         
         // Adds the inflated layout to the view
         addContentView(mUILayout, new LayoutParams(LayoutParams.MATCH_PARENT,
-            LayoutParams.MATCH_PARENT));
+                LayoutParams.MATCH_PARENT));
         
     }
-    
-    
+
+    void showCard(final String type, final String value, final Bitmap bitmap) {
+        final Context context = this;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                // if scard is already visible with same VuMark, do nothing
+                if ((_viewCard.getVisibility() == View.VISIBLE) && (_textValue.getText().equals(value))) {
+                    return;
+                }
+                Animation bottomUp = AnimationUtils.loadAnimation(context,
+                        R.anim.bottom_up);
+
+                _textType.setText(type);
+                _textValue.setText(value);
+                if (bitmap != null) {
+                    _instanceImageView.setImageBitmap(bitmap);
+                }
+                _viewCard.bringToFront();
+                _viewCard.setVisibility(View.VISIBLE);
+                _viewCard.startAnimation(bottomUp);
+                // mUILayout.invalidate();
+            }
+        });
+    }
+
+    void hideCard() {
+        final Context context = this;
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+            // if card not visible, do nothing
+            if (_viewCard.getVisibility() != View.VISIBLE) {
+                return;
+            }
+            _textType.setText("");
+            _textValue.setText("");
+            Animation bottomDown = AnimationUtils.loadAnimation(context,
+                    R.anim.bottom_down);
+
+            _viewCard.startAnimation(bottomDown);
+            _viewCard.setVisibility(View.INVISIBLE);
+            // mUILayout.invalidate();
+            }
+        });
+    }
+
     // Methods to load and destroy tracking data.
     @Override
     public boolean doLoadTrackersData()
@@ -323,27 +381,13 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
         if (mCurrentDataset == null)
             return false;
         
-        if (!mCurrentDataset.load("ObjectRecognition/objectTarget.xml",
+        if (!mCurrentDataset.load(
+                "Vuforia.xml",
             STORAGE_TYPE.STORAGE_APPRESOURCE))
             return false;
         
         if (!objectTracker.activateDataSet(mCurrentDataset))
             return false;
-        
-        int numTrackables = mCurrentDataset.getNumTrackables();
-        for (int count = 0; count < numTrackables; count++)
-        {
-            Trackable trackable = mCurrentDataset.getTrackable(count);
-            if(isExtendedTrackingActive())
-            {
-                trackable.startExtendedTracking();
-            }
-            
-            String name = "Current Dataset : " + trackable.getName();
-            trackable.setUserData(name);
-            Log.d(LOGTAG, "UserData:Set the following user data "
-                + (String) trackable.getUserData());
-        }
         
         return true;
     }
@@ -414,36 +458,26 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
                 CameraDevice.FOCUS_MODE.FOCUS_MODE_CONTINUOUSAUTO);
             
             if (result)
+                mContAutofocus = true;
+            else
                 Log.e(LOGTAG, "Unable to enable continuous autofocus");
             
-            mSampleAppMenu = new SampleAppMenu(this, this, "Object Reco",
+            mSampleAppMenu = new SampleAppMenu(this, this, "VuMark",
                 mGlView, mUILayout, null);
             setSampleAppMenuSettings();
             
         } else
         {
             Log.e(LOGTAG, exception.getString());
-            if(exception.getCode() == SampleApplicationException.LOADING_TRACKERS_FAILURE)
-            {
-                showInitializationErrorMessage( 
-                    getString(R.string.INIT_OBJECT_DATASET_NOT_FOUND_TITLE),
-                    getString(R.string.INIT_OBJECT_DATASET_NOT_FOUND));
-
-            }
-            else
-            {
-                showInitializationErrorMessage( getString(R.string.INIT_ERROR),
-                    exception.getString() );
-            }
+            showInitializationErrorMessage(exception.getString());
         }
     }
     
     
     // Shows initialization error messages as System dialogs
-    public void showInitializationErrorMessage(String title, String message)
+    public void showInitializationErrorMessage(String message)
     {
         final String errorMessage = message;
-        final String messageTitle = title;
         runOnUiThread(new Runnable()
         {
             public void run()
@@ -455,13 +489,13 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
                 
                 // Generates an Alert Dialog to show the error message
                 AlertDialog.Builder builder = new AlertDialog.Builder(
-                    ObjectTargets.this);
+                    VuMark.this);
                 builder
                     .setMessage(errorMessage)
-                    .setTitle(messageTitle)
+                    .setTitle(getString(R.string.INIT_ERROR))
                     .setCancelable(false)
                     .setIcon(0)
-                    .setPositiveButton(getString(R.string.button_OK),
+                    .setPositiveButton("OK",
                         new DialogInterface.OnClickListener()
                         {
                             public void onClick(DialogInterface dialog, int id)
@@ -504,6 +538,7 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
         {
             Log.i(LOGTAG, "Tracker successfully initialized");
         }
+        Vuforia.setHint(HINT.HINT_MAX_SIMULTANEOUS_IMAGE_TARGETS, 10);
         return result;
     }
     
@@ -569,8 +604,7 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
     
     final public static int CMD_BACK = -1;
     final public static int CMD_EXTENDED_TRACKING = 1;
-    final public static int CMD_FLASH = 2;
-    
+
     // This method sets the menu's settings
     private void setSampleAppMenuSettings()
     {
@@ -582,9 +616,7 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
         group = mSampleAppMenu.addGroup("", true);
         group.addSelectionItem(getString(R.string.menu_extended_tracking),
             CMD_EXTENDED_TRACKING, false);
-        mFlashOptionView = group.addSelectionItem(
-            getString(R.string.menu_flash), CMD_FLASH, false);
-        
+
         mSampleAppMenu.attachMenu();
     }
     
@@ -600,23 +632,7 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
             case CMD_BACK:
                 finish();
                 break;
-            
-            case CMD_FLASH:
-                result = CameraDevice.getInstance().setFlashTorchMode(!mFlash);
-                
-                if (result)
-                {
-                    mFlash = !mFlash;
-                } else
-                {
-                    showToast(getString(mFlash ? R.string.menu_flash_error_off
-                        : R.string.menu_flash_error_on));
-                    Log.e(LOGTAG,
-                        getString(mFlash ? R.string.menu_flash_error_off
-                            : R.string.menu_flash_error_on));
-                }
-                break;
-            
+
             case CMD_EXTENDED_TRACKING:
                 for (int tIdx = 0; tIdx < mCurrentDataset.getNumTrackables(); tIdx++)
                 {
@@ -654,14 +670,10 @@ public class ObjectTargets extends Activity implements SampleApplicationControl,
                 
                 break;
             
+            default:
+                break;
         }
         
         return result;
-    }
-    
-    
-    private void showToast(String text)
-    {
-        Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
 }

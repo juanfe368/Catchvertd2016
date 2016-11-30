@@ -1,7 +1,10 @@
 package com.vuforia.samples.Catchvertd;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +20,6 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
 
     private EditText txtUserName;
     private EditText txtUserClave;
-
     Button btnLogin;
     TextView lblRegistro, lblRecuperarPassword;
 
@@ -45,99 +47,77 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        if( v == btnLogin){
+        //Valida la existencia de conexión a internet
+        if(existeInternet()) {
 
-            // Crea un hilo
-            Thread tr = new  Thread(){
-                @Override
-                public void run() {
+            if (v == btnLogin) {
 
-                    ConnectWs cw = new ConnectWs();
+                // Crea un hilo
+                Thread tr = new Thread() {
+                    @Override
+                    public void run() {
 
-                    //Llamando servicioWeb con enviarDatosLoginGET
-                    final String resultado = cw.enviarDatosLoginGET(txtUserName.getText().toString(),txtUserClave.getText().toString());
+                        ConnectWs cw = new ConnectWs();
 
-                    //System.out.println("resultado del servicioWeb = " + resultado);
+                        //Llamando servicioWeb con enviarDatosLoginGET
+                        final String resultado = cw.enviarDatosLoginGET(txtUserName.getText().toString(), txtUserClave.getText().toString());
 
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
+                        //System.out.println("resultado del servicioWeb = " + resultado);
 
-                            int r = obtenerDatosJSON(resultado);
-                            if (r > 0){
-                                //para llamar la actividad
-                                Intent i = new Intent(getApplicationContext(),MenuCatchvertd.class);
-                                startActivity(i);
-                            }else{
-                                //muestra un mensaje de error en la pantalla
-                                Toast.makeText(getApplicationContext(),"Usuario o Password incorrectos", Toast.LENGTH_LONG).show();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                                int r = obtenerDatosJSON(resultado);
+                                if (r > 0) {
+                                    //para llamar la actividad
+                                    Intent i = new Intent(getApplicationContext(), MenuCatchvertd.class);
+                                    startActivity(i);
+                                } else {
+                                    //muestra un mensaje de error en la pantalla
+                                    Toast.makeText(getApplicationContext(), "Usuario o Password incorrectos", Toast.LENGTH_LONG).show();
+                                }
                             }
-                        }
-                    });
-                }
-            };
+                        });
+                    }
+                };
 
-            //inicia el hilo
-            tr.start();
-        }else if(v == lblRegistro){
+                //inicia el hilo
+                tr.start();
+            } else if (v == lblRegistro) {
 
-            //System.out.println("Ingreso a crear registro");
-            Intent intent = new Intent(this, RegistroActivity.class);
-            startActivity(intent);
+                //System.out.println("Ingreso a crear registro");
+                Intent intent = new Intent(this, RegistroActivity.class);
+                startActivity(intent);
 
-        }else if(v == lblRecuperarPassword){
+            } else if (v == lblRecuperarPassword) {
+                //muestra un mensaje de en la pantalla
+                Toast.makeText(getApplicationContext(), "En construcción", Toast.LENGTH_LONG).show();
+            }
+        }else{
             //muestra un mensaje de en la pantalla
-            Toast.makeText(getApplicationContext(),"En construcción", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "No existe conexión a internet", Toast.LENGTH_LONG).show();
         }
 
     }
-
 
     /**
-     * Llama a el servicio web
-     * @param usu
-     * @param pass
+     * Valida la existencia de conexión a internet
      * @return
      */
-  /*
-    public String enviarDatosLoginGET(String usu, String pass) {
+    private boolean existeInternet() {
 
-        URL url = null;
-        String linea = "";
-        int respuesta = 0;
-        StringBuilder resul = null;
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            //we are connected to a network
+            connected = true;
+        } else
+            connected = false;
 
-        String url_local = "http://192.168.0.14:8888/Catchvertd/"; // Url del MAC de Oscar
-        String url_remota = "http://catchvertd.com.co/";
-
-        try {
-            // Prepara la URL con el metodo GET y se asigna el usuario y la contraseña
-            url = new URL(url_remota + "valida.php?usu=" + usu + "&pas=" + pass);
-            // Abre la conexion a internet
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            // Prepara la respuesta
-            respuesta = connection.getResponseCode();
-            // Almacena el resultado que llega del servicio web
-            resul = new StringBuilder();
-            // Valida que la respuesta del servicio sea correcto con OK
-            if (respuesta == HttpURLConnection.HTTP_OK) {
-                InputStream in = new BufferedInputStream(connection.getInputStream());
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                // Recorre las lineas de la respuesta del servicio web
-                while ((linea = reader.readLine()) != null) {
-                    //Adiciona a resul el contenido de linea
-                    resul.append(linea);
-                }
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        //Retorna el resultado del servicio web que es un JSON
-        return resul.toString();
+        return  connected;
     }
-*/
 
     /**
      * Verifica la cantidad de datos que regreso el servicio web
@@ -160,5 +140,7 @@ public class LoginCatchvertd extends Activity implements View.OnClickListener{
         }
         return res;
     }
+
+
 
 }

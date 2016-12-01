@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "200749891291",
+    "firebase_url": "https://catchvertd-c40df.firebaseio.com",
+    "project_id": "catchvertd-c40df",
+    "storage_bucket": "catchvertd-c40df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200749891291:android:c02930d659a0d0d0",
+        "android_client_info": {
+          "package_name": "com.vuforia.samples.VuforiaSamples"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "200749891291-pb0jgirlbqqiqprca1j6hh93k6aiae1e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vuforia.samples.VuforiaSamples",
+            "certificate_hash": "63E4142D0CA5660A75B3BE858E6D4417C627A046"
+          }
+        },
+        {
+          "client_id": "200749891291-t2a3tq1dqqlsik9mlip30llrli7svccj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7QiKXhPpMAkrS_4_TbqLOprl4h1w33pk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200749891291-t2a3tq1dqqlsik9mlip30llrli7svccj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

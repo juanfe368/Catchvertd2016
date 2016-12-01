@@ -17,8 +17,6 @@ public class PremiosActivity extends Activity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_premios);
 
-
-
         btnRegresar = (Button) findViewById(R.id.buttonRegresar);
         btnRegresar.setOnClickListener(this);
 

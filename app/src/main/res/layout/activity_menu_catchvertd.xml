@@ -212,7 +212,7 @@
                 android:adjustViewBounds="true"
                 android:layout_gravity="right"
                 android:background="@null"
-                android:onClick="butPremios" />
+                android:onClick="butPremios2" />
         </LinearLayout>
     </LinearLayout>
 

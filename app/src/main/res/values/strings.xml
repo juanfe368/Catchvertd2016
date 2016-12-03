@@ -68,7 +68,7 @@
 
     <!-- Textos de la pantalla de login -->
 
-    <string name="stringbutLogin">Aceptar</string>
+    <string name="stringbutLogin">Ingresar</string>
     <string name="stringRegistroLogin">Registrarse</string>
     <string name="stringRecordarContrasena">Recordar contraseña</string>
 
@@ -87,8 +87,8 @@
 
 
     <!-- Datos de prueba pantalla Login-->
-    <string name="stringUsuarioLogin">prueba01@usc.edu.co</string>
-    <string name="stringClaveLogin">123456</string>
+    <string name="stringUsuarioLogin"></string>
+    <string name="stringClaveLogin"></string>
 
     <!-- Datos de prueba pantalla Registro-->
     <string name="stringRegNombre">prueba00</string>
@@ -101,6 +101,7 @@
     <string name="stringBtnRegresar">Regresar</string>
     <string name="stringPremiosTitulo">Premios</string>
     <string name="stringPremiosTituloDescripcion">Menú para dos o cuatro con 50% off</string>
+    <string name="stringPremiosTituloDescripcion2">50% off en ropa</string>
     <string name="stringPremiosDescripcion">Restaurante xxxxxx yyyyyy</string>
 
     <!-- Fin de String de Catchvertd -->

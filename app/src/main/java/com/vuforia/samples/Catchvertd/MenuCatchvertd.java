@@ -45,6 +45,10 @@ public class MenuCatchvertd extends Activity implements View.OnClickListener{
         Intent intent = new Intent(this, PremiosActivity.class);
         startActivity(intent);
     }
+    public void butPremios2(View v) {
+        Intent intent = new Intent(this, Activity_premios2.class);
+        startActivity(intent);
+    }
 
 
     @Override

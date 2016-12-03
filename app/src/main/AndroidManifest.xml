@@ -108,7 +108,8 @@
             android:launchMode="singleTask"
             android:theme="@style/SampleAppsTheme" />
         <activity android:name="com.vuforia.samples.Catchvertd.RegistroActivity" />
-        <activity android:name="com.vuforia.samples.Catchvertd.PremiosActivity"></activity>
+        <activity android:name="com.vuforia.samples.Catchvertd.PremiosActivity" />
+        <activity android:name="com.vuforia.samples.Catchvertd.Activity_premios2"></activity>
     </application>
 
 </manifest>
